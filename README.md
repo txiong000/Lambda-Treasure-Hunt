@@ -96,9 +96,9 @@ Hint 2: What do you do when you hit a dead end? What is the best algorithm for f
 
 An accurate map is the wise explorer's best friend. By predicting the ID of the destination room, you can reduce your action cooldown by 50%. Say you are in `room 10` and moving back south to `room 0`:
 
-```
+`
 curl -X POST -H 'Authorization: Token 7a375b52bdc410eebbc878ed3e58b2e94a8cb607' -H "Content-Type: application/json" -d '{"direction":"s", "next_room_id": "0"}' https://lambda-treasure-hunt.herokuapp.com/api/adv/move/
-```
+`
 
 Note the new parameter, `next_room_id`. Your map tells you that `room 0` lies south of `room 10`. This returns the following response:
 
@@ -124,24 +124,23 @@ Note the `Wise Explorer` bonus and 50% cooldown reduction.
 
 You may have noticed the small treasure lying in the room. You can pick it up with the following command:
 
-```
+`
 curl -X POST -H 'Authorization: Token 7a375b52bdc410eebbc878ed3e58b2e94a8cb607' -H "Content-Type: application/json" -d '{"name":"treasure"}' https://lambda-treasure-hunt.herokuapp.com/api/adv/take/
-```
+`
 
 You may drop items with the following command:
 
-```
+`
 curl -X POST -H 'Authorization: Token 7a375b52bdc410eebbc878ed3e58b2e94a8cb607' -H "Content-Type: application/json" -d '{"name":"treasure"}' https://lambda-treasure-hunt.herokuapp.com/api/adv/drop/
-
-```
+`
 
 ## Selling Treasure
 
 First, you must find the shop. It's not too far from your starting location. Once you do, you can offer your treasure in exchange for gold.
 
-```
+`
 curl -X POST -H 'Authorization: Token 7a375b52bdc410eebbc878ed3e58b2e94a8cb607' -H "Content-Type: application/json" -d '{"name":"treasure"}' https://lambda-treasure-hunt.herokuapp.com/api/adv/sell/
-```
+`
 
 This will return:
 
@@ -162,17 +161,17 @@ This will return:
 
 Confirm the sale with the following command:
 
-```
+`
 curl -X POST -H 'Authorization: Token 7a375b52bdc410eebbc878ed3e58b2e94a8cb607' -H "Content-Type: application/json" -d '{"name":"treasure", "confirm":"yes"}' https://lambda-treasure-hunt.herokuapp.com/api/adv/sell/
-```
+`
 
 ## Status, Inventory
 
 You can check your status and inventory using the following command:
 
-```
+`
 curl -X POST -H 'Authorization: Token 7a375b52bdc410eebbc878ed3e58b2e94a8cb607' -H "Content-Type: application/json" https://lambda-treasure-hunt.herokuapp.com/api/adv/status/
-```
+`
 
 ```
 {
