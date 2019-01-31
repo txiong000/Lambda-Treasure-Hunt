@@ -14,7 +14,7 @@ You start the adventure unworthy, unequipped and anonymous. Your first task is t
 
 ## Rooms
 
-The map is laid out in a grid: Similar to your worlds from Week 1 of your CS training, each room may have exits in the cardinal directions: North, South, East and West. Each room also comes with a unique ID and coordinates for your convenience.
+The map is laid out in a grid: Similar to your worlds from Week 1 of your CS training, each room may have exits in the cardinal directions: north, south, east and west. Each room also comes with a unique ID and coordinates for your convenience.
 
 ```
 // Starting room
