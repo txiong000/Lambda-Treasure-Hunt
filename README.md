@@ -23,7 +23,7 @@ The map is laid out in a grid: Similar to your worlds from Week 1 of your CS tra
   "title": "Room 0",
   "description": "You are standing in an empty room.",
   "coordinates": "(60,60)",
-  "players": ["rachel", "sam", "tim", "eric"],
+  "players": [],
   "items": ["small treasure"],
   "exits": ["n", "s", "e", "w"],
   "cooldown": 60.0,
