@@ -11,6 +11,8 @@ Happy hunting!
 
 You start the adventure unworthy, unequipped and anonymous. Your first task is to traverse the island and build a map for your personal use. Along the way, you will discover equipment, treasure and clues which will assist you on your quest for power, wealth and glory.
 
+You can see the server source code [here](https://github.com/br80/lambda_treasure_hunt).
+
 
 ## Rooms
 
@@ -193,3 +195,4 @@ curl -X POST -H 'Authorization: Token 7a375b52bdc410eebbc878ed3e58b2e94a8cb607' 
 The island is constantly evolving and full of mysteries. As time passes and you explore the map, you will discover ancient clues and artifacts which will lead to greater power and riches.
 
 Happy hunting!
+
