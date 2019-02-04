@@ -39,6 +39,13 @@ The map is laid out in a grid: Similar to your worlds from Week 1 of your CS tra
 
 Your access to the server is restricted until you earn more power. Starting off, you are only allowed to make one request every 60 seconds. Sending another request before that time has elapsed will incur a penalty.
 
+## Initialization
+
+Test your API key with the init command. You can use this to get all relevant stats before you start moving.
+
+`
+curl -X GET -H 'Authorization: Token 7a375b52bdc410eebbc878ed3e58b2e94a8cb607' https://lambda-treasure-hunt.herokuapp.com/api/adv/init/
+`
 
 ## Movement
 
