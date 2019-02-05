@@ -198,6 +198,15 @@ curl -X POST -H 'Authorization: Token 7a375b52bdc410eebbc878ed3e58b2e94a8cb607' 
 ```
 
 
+## Examine
+
+You can examine players or items in your room or inventory using this command:
+
+`
+curl -X POST -H 'Authorization: Token 7a375b52bdc410eebbc878ed3e58b2e94a8cb607' -H "Content-Type: application/json" -d '{"name":"[NAME OF ITEM OR PLAYER]"}' https://lambda-treasure-hunt.herokuapp.com/api/adv/examine/
+`
+
+
 ## Name Changer
 
 You can change your name once you find the name changer using the following command:
