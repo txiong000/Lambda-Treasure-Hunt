@@ -198,7 +198,7 @@ curl -X POST -H 'Authorization: Token 7a375b52bdc410eebbc878ed3e58b2e94a8cb607' 
 ```
 
 
-## Status, Inventory
+## Name Changer
 
 You can change your name once you find the name changer using the following command:
 
