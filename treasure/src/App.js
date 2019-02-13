@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import Buttons from './components/Buttons'
 
 // const API_KEY = process.env.REACT_API_KEY
 
@@ -45,17 +46,22 @@ class App extends Component {
     })
   }
 
-  moveMent(direction){
+  moveMent = (direction) =>{
+    
     const headers = {headers: {Authorization: 'Token 29a841c94d3f7ea3b66a8ed3bfa711168d7c5641' }}
     const move = {direction: direction}
+   axios
   .post('https://lambda-treasure-hunt.herokuapp.com/api/adv/move/', move, headers)
-}
+  .then(response => {
+    console.log(response.data)
+  })
+} 
   
 
   render() {
     return (
       <div className="App">
-        Test
+        <Buttons  moveMent={this.moveMent}/>
       </div>
     );
   }
