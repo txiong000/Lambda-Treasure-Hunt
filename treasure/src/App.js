@@ -45,6 +45,12 @@ class App extends Component {
     })
   }
 
+  moveMent(direction){
+    const headers = {headers: {Authorization: 'Token 29a841c94d3f7ea3b66a8ed3bfa711168d7c5641' }}
+    const move = {direction: direction}
+  .post('https://lambda-treasure-hunt.herokuapp.com/api/adv/move/', move, headers)
+}
+  
 
   render() {
     return (
