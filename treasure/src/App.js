@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import Buttons from './components/Buttons'
+import InfoComponents from './components/InfoComponent'
 
 // const API_KEY = process.env.REACT_API_KEY
 
@@ -54,6 +55,18 @@ class App extends Component {
   .post('https://lambda-treasure-hunt.herokuapp.com/api/adv/move/', move, headers)
   .then(response => {
     console.log(response.data)
+    this.setState({
+      room_id: response.data.room_id,
+        title: response.data.title,
+        description: response.data.description,
+        coordinates: response.data.coordinates,
+        players: response.data.players,
+        items: response.data.items,
+        exits: response.data.exits,
+        cooldown: response.data.cooldown,
+        errors: response.data.error,
+        messages: response.data.messages
+    })
   })
 } 
   
@@ -62,6 +75,16 @@ class App extends Component {
     return (
       <div className="App">
         <Buttons  moveMent={this.moveMent}/>
+        <InfoComponents room_id = {this.state.room_id}
+              title = {this.state.title}
+              description = {this.state.description}
+              coordinates = {this.state.coordinates}
+              players = {this.state.players}
+              items = {this.state.items}
+              exits = {this.state.exits}
+              cooldown = {this.state.cooldown}
+              errors = {this.state.errors}
+              messages = {this.state.messages}  />
       </div>
     );
   }
