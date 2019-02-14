@@ -21,8 +21,14 @@ class App extends Component {
         errors: [],
         messages: []
   }
+  this.graph = {}
+  if (localStorage.getItem("graph")) {
+    this.graph = JSON.parse(localStorage.getItem("graph"))
   }
- 
+  }
+
+
+
   componentDidMount = () => {
     const headers = {headers :{Authorization: 'Token 29a841c94d3f7ea3b66a8ed3bfa711168d7c5641'}}
     axios
@@ -39,7 +45,7 @@ class App extends Component {
         exits: response.data.exits,
         cooldown: response.data.cooldown,
         errors: response.data.error,
-        messages: response.data.messages
+        messages: response.data.messages,
       })
     })
     .catch(err => {
@@ -47,8 +53,42 @@ class App extends Component {
     })
   }
 
-  moveMent = (direction) =>{
+  
+
+
+  automated = () => {
+
+    this.interval = setInterval(()=>{
+      if(!this.graph[this.state.room_id]) {
+        const object = {}
+        for (let room of this.state.exits) {
+          object[room] = '?'
+        }
+        this.graph[this.state.room_id] = [this.state.coordinates, object]
+      }
+      
+      let direction = this.state.exits[Math.floor(Math.random() * this.state.exits.length)]
+      console.log("direction of automated",direction)
+      
+      this.moveMent(direction)
+      localStorage.setItem("graph", JSON.stringify(this.graph))
+    }, 7000)
     
+  }
+
+
+// Get Axios call to server init
+// Set state to response data
+// Build manual direction movement
+// Build a graph = {}
+// Build automated traverse
+
+
+
+
+
+  moveMent = (direction) =>{
+    const prev_room = this.state.room_id
     const headers = {headers: {Authorization: 'Token 29a841c94d3f7ea3b66a8ed3bfa711168d7c5641' }}
     const move = {direction: direction}
    axios
@@ -67,6 +107,16 @@ class App extends Component {
         errors: response.data.error,
         messages: response.data.messages
     })
+    const inverse = { n: 's', s: 'n', w: 'e', e: 'w' };
+    if(!this.graph[this.state.room_id]) {
+      const object = {}
+      for (let room of this.state.exits) {
+        object[room] = '?'
+      }
+      this.graph[this.state.room_id] = [this.state.coordinates, object]
+    }
+    this.graph[prev_room][1][direction] = this.state.room_id
+    this.graph[this.state.room_id][1][inverse[direction]] = prev_room
   })
 } 
   
@@ -74,7 +124,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Buttons  moveMent={this.moveMent}/>
+        <Buttons  moveMent={this.moveMent} automated = {this.automated}/>
         <InfoComponents room_id = {this.state.room_id}
               title = {this.state.title}
               description = {this.state.description}
